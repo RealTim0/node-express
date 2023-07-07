@@ -1,0 +1,14 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "my succesful node project",
+  "main": "async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Timothy Mwangi",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
