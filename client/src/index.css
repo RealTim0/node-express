@@ -1,0 +1,252 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    font-family: monospace;
+}
+body{
+    opacity: 6px 6px 6px  blue;
+}
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    background-color: white;
+    box-shadow: 0 0 2px black;
+    padding:5px;
+    position:sticky;
+    top:0;
+    height: 60px;
+    width:100%;
+
+}
+.divbnav{
+    margin-right:0;
+    margin-left: 5px;
+}
+.divanav{
+    margin-left:-15px;
+}
+.navbar nav a{
+    text-decoration: none;
+    margin-left: 40px;
+    color:black;
+    text-align: center;
+
+}
+.navbar nav a:hover{
+    text-decoration: underline;
+    color:green;
+}
+.navbar .divanav a{
+    text-decoration: none;
+    margin-left: 25px;
+    color:yellowgreen;
+    text-align: center;
+}
+.footer{
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2rem;
+}
+.footerdiv span{
+ margin:0 20px;
+}
+.footer a:hover{
+  color:green;
+  text-decoration: underline;
+}
+.welcomepage{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap:15px; 
+    height:100vh;
+}
+.welcomepagetext{
+    text-align: center;
+   align-self: center;
+   font-size: 2.1rem;
+   margin-left: -20px;
+   margin-right:50px;
+}
+.welcomepageimg{
+    width:350px;
+    margin-inline-start: -40px;
+}
+.welcomepagetext a {
+    font-size:rem;
+    padding: 7.5px;
+    background-color: black;
+    color: yellowgreen;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:25px;
+    border-top-left-radius:25px;
+    border-bottom-right-radius:25px;
+    border:none;
+    text-decoration:none;
+}
+.welcomepagetext a:hover {
+    background-color: yellowgreen;
+    color: black;
+    border-top-right-radius:25px;
+    border-bottom-left-radius:25px;
+    border-top-left-radius:25px;
+    border-bottom-right-radius:0px;
+}
+.welcomepage p{
+    margin-top: 5px;
+}
+.welcomepage h2{
+    margin-bottom: 8px;
+}
+form.signup, form.login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: whitesmoke;
+    border-radius: 4px;
+    border: solid 2px #333;
+  }
+ form.contact {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 20px;
+    background: whitesmoke;
+    border-radius: 4px;
+    border: solid 2px #333;
+  } 
+  label, input {
+    display: block;
+  }
+  input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  form button {
+    background: yellowgreen;
+    border: 0;
+    color: black;
+    padding: 10px;
+    font-family: monospace;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display:block;
+    
+  }
+  form button:hover {
+    background: black;
+    border: 0;
+    color: yellowgreen;
+  }
+  form button:active{
+    background: black;
+    border: 0;
+    color: yellowgreen;
+  }
+  form a{
+    text-decoration: none;
+  }
+  div.error {
+    padding: 10px;
+    background: #ffefef;
+    border: 1px solid var(--error);
+    color: var(--error);
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+  input.error {
+    border: 1px solid var(--error);
+  }
+  .profiletab{
+    height: 500px;
+    width:89%;
+    background-color: antiquewhite;
+    position: relative;
+    z-index: 1;
+    margin:30px;
+    display:block;
+  }
+  .home{
+    background-color:whitesmoke;
+    height:100vh;
+  }
+  .homeimgs{
+    display:flex;
+   justify-content: space-around;
+
+  }
+  .homelogo{
+    display:flex;
+    justify-content: center;
+  }
+  
+.image-slider {
+  position: relative;
+  width: 300px;
+  height: 300px; /* Adjust the height as needed */
+  overflow: hidden;
+  margin-top: 20px;
+  
+}
+
+.image-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:70%;
+  height:70%;
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity 0.5s ease;
+  
+}
+
+.image-slider img.visible {
+  opacity: 1;
+}
+.home a{
+  padding:5px;
+  background-color: yellowgreen;
+  color:black;
+  font-family: monospace;
+  font-size: 1.3rem;
+  border:none;
+  margin-top:5px;
+  border-top-right-radius:25px;
+    border-bottom-left-radius:25px;
+    border-top-left-radius:25px;
+    border-bottom-right-radius:0px;
+    text-decoration: none;
+}
+.home a:hover{
+  border-top-right-radius:0px;
+    border-bottom-left-radius:25px;
+    border-top-left-radius:25px;
+    border-bottom-right-radius:25px;
+    background-color: black;
+  color:yellowgreen;
+}
+.buttoncontainer{
+  display:grid;
+  place-items: center;
+}
+
+a{
+  color:black;
+  text-decoration: none;
+}
+a:hover:active{
+  color:yellowgreen;
+  text-decoration: underline;
+}
