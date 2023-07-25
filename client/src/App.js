@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Profile from "./pages/Profile"
 import Booking from "./pages/Booking"
+import Bookings from "./pages/Bookings"
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
       ></Route>
       <Route path="/booking" 
       element={< Booking />}
+      ></Route>
+      <Route path="/bookings" 
+      element={< Bookings />}
       ></Route>
     
       

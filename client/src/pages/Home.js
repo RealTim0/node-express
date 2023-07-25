@@ -39,6 +39,13 @@ export default function Home(){
                 Then...
             </h3>
             <div className="buttoncontainer"><Link to="/booking">BOOK AN APPOINMENT</Link></div>
+            <div className='float'>
+                <h4 style={{
+                    color:'red',
+                    marginBottom:'5px'
+                }}>EMERGENCY?</h4>
+                <a href="tel:+254704386428">📞</a>
+            </div>
         <div className="homeimgs">
             <ImageSlider images={images}/>
             <ImageSlider images={images}/>

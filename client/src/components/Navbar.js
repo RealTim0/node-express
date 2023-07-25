@@ -1,43 +1,48 @@
 import {Link} from "react-router-dom"
-import 'boxicons'
+
+import { useState } from "react"
 import Profile from '../pages/Profile'
 
-
-
-
 export default function Navbar(){
+    const[isClicked, setIsClicked] = useState(false)
+    const click =` ${isClicked ? 'listnav' : 'divbnav'}`
   function handleClick(){
-    let profile = <Profile />
-        if(profile.style.display="none"){
-            profile.style.display="block"
-        }else{
-            profile.style.display="none"
-        }
-        
+    setIsClicked(!isClicked)
     } 
-    
+   let style={
+    borderRadius: '50%',
+    textAlign: 'center',
+    width: '55px'
+}
     return(
         <div className="navbar">
             <div className='divanav'>
-            <Link to="/home"> <img style={{
-                borderRadius:'50%',
-                textAlign:'center',
-                width:'55px'
-
-            }}
-            
-             src="https://cdn.freelogodesign.org/files/f587fa9aa6ec45eda32fa4ab57476b3e/thumb/logo_200x200.png?v=638258079860000000" alt=""/></Link>
+                <Link to="/home"> 
+                <img style={style}
+                    src="https://cdn.freelogodesign.org/files/f587fa9aa6ec45eda32fa4ab57476b3e/thumb/logo_200x200.png?v=638258079860000000" alt="" />
+                    </Link>
+                    <span
+                    style={{
+                        fontSize:'1.6rem',
+                        padding:'30px -10px  0 0',
+                        margin:'10px'
+                    }}>welcome.username</span>
             </div>
-            <div className='divbnav'>
+            <div className={click}>
             <nav>
-            <Link to="/about">About</Link>
-            <Link to="/Services">Services</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/login">Login</Link>
-            <button onClick={handleClick}><box-icon type='solid' name='face'></box-icon></button>
-        </nav>
-         {/* <div style={style} className="profiletab">profile  <button  onClick={handleClick} ><box-icon type='solid' name='face'></box-icon></button></div>  */}
-        </div>
+                <ul className="ul">
+                    <li><Link to="/bookings">Bookings</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/Services">Services</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/login">Login</Link> </li>
+                    <li><button onClick={handleClick}>👦🏿</button></li>
+                </ul>
+  
+            </nav>
+            </div>
+                <button  className="mainmenu" onClick={handleClick}>{isClicked ?'❌':'⭕'}</button>
+        
         </div>
     )
 }
