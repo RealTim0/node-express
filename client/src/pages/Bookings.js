@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Bookings = () => {
   return (
-    <div className='bookings'><Link to='/bookings'>Book Now</Link></div>
+    <div className='bookings'><Link to='/booking'>Book Now</Link></div>
   )
 }
 
