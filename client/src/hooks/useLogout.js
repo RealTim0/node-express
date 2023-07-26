@@ -8,8 +8,8 @@ const {dispatch: bookingsDispatch} = useBookingsContext()
     const logout = () =>{
         localStorage.removeItem('user')
         dispatch({type:'LOGOUT'})
-        bookingsDispatch({type:'SET_BOOKINGS', payload: null})
+        bookingsDispatch({type:'GET_BOOKINGS', payload: null})
     }
 
-    return {logout}
+    return {logout}   
 }

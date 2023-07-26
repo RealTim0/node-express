@@ -16,19 +16,21 @@ const Services = () => {
         'https://media.istockphoto.com/id/1221973951/vector/washing-car-station-wash-interior-and-engine.jpg?s=612x612&w=0&k=20&c=59291Jz0uIEmz-ucKlO5GEFAh38z5MLIrezGNhZXaP8='
     ]
     const servicesData = [
-        { service: 'Oil Change', price: '$50' },
-        { service: 'Brake Service', price: '$100' },
-        { service: 'Tire Rotation and Alignment', price: '$80' },
-        { service: 'Battery Inspection and Replacement', price: '$70' },
-        { service: 'Engine Tune-Up', price: '$120' },
-        { service: 'Air Conditioning Service', price: '$60' },
-        { service: 'Transmission Service', price: '$150' },
-        { service: 'Suspension and Steering Service', price: '$90' },
-        { service: 'Electrical System Check', price: '$50' },
-        { service: 'Fluid Level Check and Top-Up', price: '$30' },
+        { id:1, service: 'Oil Change', price: '$50' },
+        { id:2, service: 'Brake Service', price: '$100' },
+        { id:3, service: 'Tire Rotation and Alignment', price: '$80' },
+        { id:4, service: 'Battery Inspection and Replacement', price: '$70' },
+        { id:5, service: 'Engine Tune-Up', price: '$120' },
+        { id:6, service: 'Air Conditioning Service', price: '$60' },
+        { id:7, service: 'Transmission Service', price: '$150' },
+        { id:8, service: 'Suspension and Steering Service', price: '$90' },
+        { id:9, service: 'Electrical System Check', price: '$50' },
+        { id:0, service: 'Fluid Level Check and Top-Up', price: '$30' },
       ];
   return (
-    <div className="home">
+    <div className="home" style={{
+      height:'100%'
+    }}>
         <h2 style={{
             textAlign:'center',
             fontFamily:'sanserif',
