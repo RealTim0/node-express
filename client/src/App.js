@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from './pages/Signup'
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login"
@@ -11,27 +11,29 @@ import Footer from "./components/Footer"
 import Profile from "./pages/Profile"
 import Booking from "./pages/Booking"
 import Bookings from "./pages/Bookings"
+import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
+  const {user} = useAuthContext()
   return (
    <BrowserRouter>
    <Navbar/>
    
     <Routes>
-    <Route exact path="/" 
+    {!user && <Route path="/" 
       element={<Welcome/>}
-      ></Route>
+      ></Route>}
       <Route path="/signup" 
       element={<Signup />}
       ></Route>
       <Route path="/login" 
       element={< Login />}
       ></Route>
-      <Route path="/home" 
-      element={< Home />}
+      <Route exact path="/home" 
+      element={user ? <Home />: <Navigate to="/" />}
       ></Route>
       <Route path="/contact" 
-      element={< Contact />}
+      element={user ? <Contact />: <Navigate to="/" />}
       ></Route>
       <Route path="/services" 
       element={< Services />}
@@ -43,10 +45,10 @@ function App() {
       element={< Profile />}
       ></Route>
       <Route path="/booking" 
-      element={< Booking />}
+      element={user ? <Booking />: <Navigate to="/" />}
       ></Route>
       <Route path="/bookings" 
-      element={< Bookings />}
+      element={user ? <Bookings />: <Navigate to="/" />}
       ></Route>
     
       

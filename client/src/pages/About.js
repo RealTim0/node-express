@@ -60,7 +60,7 @@ const About = () => {
       </p>
       <br></br>
       <h3>Reach us:</h3>
-      <p>
+      <div>
         <strong>Address:</strong> <address>
       <strong>RIRI Car Repair Shop</strong><br />
        P.O Box 3567<br />
@@ -70,7 +70,7 @@ const About = () => {
         <strong>Phone:</strong> < a href='tel:+254704386'>+254 (707)123 5555</a><br />
         <strong>Email:</strong> <a href="mailto:gemtimo994@gmail.com" >info@RIRIcarrepair.com</a><br />
         <strong>Website:</strong> Website URL
-      </p>
+      </div>
       
       <div className="faq">
         <h2>FAQ</h2>

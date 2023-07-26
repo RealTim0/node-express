@@ -1,17 +1,47 @@
 import React, { useState } from 'react';
+import {useAuthContext} from '../hooks/useAuthContext'
+import {useBookingsContext} from '../hooks/useBookingContext'
 
 const BookingForm = () => {
+  const {user} = useAuthContext()
+  const {dispatch} = useBookingsContext()
     const[name, setName] = useState('')
     const[email, setEmail] = useState('')
     const[model, setModel] = useState('')
     const[phone, setPhone] = useState('')
     const[service, setService] = useState('')
     const[appointmentDate, setAppointmentDate] = useState('')
+    const[error, setError] = useState(null)
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submitted')
-  };
+    const handleSubmit = async (e)=>{
+      e.preventDefault()
+
+      const response = await fetch("http://localhost:5000/booking",{
+          method:'POST',
+          body:JSON.stringify({name, email, model, phone, service, appointmentDate}),
+          headers:{
+              'Content-Type':"application/json",
+              'Authorization' : `Bearer ${user.token}`
+          } 
+      })
+
+      const json = await response.json()
+
+      if(!response.ok){
+          setError(json.error)
+      }
+      if(response.ok){
+          setError(null)
+          setName("")
+          setEmail('')
+          setPhone('')
+          setModel("")
+          setService("")
+          setAppointmentDate('')
+          console.log("successful😁")
+          dispatch({type:'CREATE_WORKOUT', payload:json})
+      }
+  }
 
   return (
     <div>
@@ -84,6 +114,7 @@ const BookingForm = () => {
             required
           />
         <button type="submit">Book Now</button>
+        {error && <div className='error'>{error}</div>}
       </form>
     </div>
   );

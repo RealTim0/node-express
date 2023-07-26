@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import {Link } from 'react-router-dom'
-/* import { useSignup } from '../hooks/useSignup' */
+import {useSignup} from '../hooks/useSignup'
 
 const Signup = ()=>{
     const[email, setEmail]  = useState('')
     const[username, setUsername]  = useState('')
     const[password, setPassword]  = useState('')
-    //const { signup, error, isLoading } = useSignup()
+    const{signup, error, isLoading} = useSignup()
+  
+   
 
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-
-       // await signup(email, username, password)
-        
+           await signup(email, username, password)
     }
     return(
         <form  className='signup' onSubmit={handleSubmit} >
@@ -39,11 +39,12 @@ const Signup = ()=>{
                 placeholder="ABCabc123!%$@"
                 value={password}
             />
-          {/*  {error && <div className="error">{error}</div>} */}
-                <button >Sign Up</button>
+           
+                <button disabled={isLoading}>Sign Up</button>
+                {error && <div className="error">{error}</div>}
                 <p>Already have an account ?<Link to="/login">Login</Link> </p>
         </form>
     )
-}
 
+    }
 export default Signup

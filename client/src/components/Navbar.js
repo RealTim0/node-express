@@ -1,9 +1,12 @@
 import {Link} from "react-router-dom"
-
+import { useLogout } from "../hooks/useLogout"
 import { useState } from "react"
-import Profile from '../pages/Profile'
+import { useAuthContext } from "../hooks/useAuthContext"
+
 
 export default function Navbar(){
+    const {user} = useAuthContext()
+    const {logout} = useLogout()
     const[isClicked, setIsClicked] = useState(false)
     const click =` ${isClicked ? 'listnav' : 'divbnav'}`
   function handleClick(){
@@ -14,6 +17,9 @@ export default function Navbar(){
     textAlign: 'center',
     width: '55px'
 }
+function handleLogout(){
+    logout()
+}
     return(
         <div className="navbar">
             <div className='divanav'>
@@ -21,22 +27,30 @@ export default function Navbar(){
                 <img style={style}
                     src="https://cdn.freelogodesign.org/files/f587fa9aa6ec45eda32fa4ab57476b3e/thumb/logo_200x200.png?v=638258079860000000" alt="" />
                     </Link>
-                    <span
+                   {user && <span
                     style={{
                         fontSize:'1.6rem',
                         padding:'30px -10px  0 0',
                         margin:'10px'
-                    }}>welcome.username</span>
+                    }}>👦🏿 {user.name}✔, welcome!🤗</span>}
             </div>
             <div className={click}>
             <nav>
                 <ul className="ul">
-                    <li><Link to="/bookings">Bookings</Link></li>
+                {user && <li><Link to="/bookings">Bookings</Link></li>}
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/Services">Services</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/login">Login</Link> </li>
-                    <li><button onClick={handleClick}>👦🏿</button></li>
+                    {user && <li><Link to="/contact">Contact</Link></li> }
+                      {!user && <li><Link to="/login">Login</Link> </li> }
+                    {user &&<li><button onClick={handleLogout} style={{
+                        border:'2px red solid',
+                        fontSize:'1.2rem',
+                        color:'red',
+                        backgroundColor:'pink',
+                        padding:'2.5px',
+                        borderRadius:'3px',
+                        cursor:'pointer'
+                    }}>logout</button></li>}
                 </ul>
   
             </nav>
