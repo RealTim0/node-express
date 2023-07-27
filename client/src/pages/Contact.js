@@ -13,8 +13,10 @@ export default function Contact () {
   
   
   const handleSubmit = async (e) => {
+    <div>Loading...</div>; 
+    
     e.preventDefault();
-    await fetch('https://riri-car-repair-backened.vercel.app/api/contact', {
+    await fetch('https://riri-car-repair-backend.vercel.app/api/contact', {
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({name,email,subject,message})  

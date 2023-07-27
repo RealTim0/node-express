@@ -3,11 +3,20 @@ const bcrypt = require('bcrypt')
 const asyncHandler = require('express-async-handler')
 const validator = require('validator')
 const jwt = require("jsonwebtoken")
+const mongoose= require("mongoose")
 
 const createToken = (_id) => {
     return jwt.sign({_id}, process.env.SECRET, {expiresIn :'3d'})
 }
-
+/////////////////////////////////////////////////////////////
+const getUsers = asyncHandler(async(req, res)=>{
+    const users = await USER.find()
+    if(users){
+        res.status(200).json(users)
+    }else{
+        return res.status(400).json({errror:"error"})
+    }
+})
 ////////////////////// ///////////////////////////////////
 const loginUser = asyncHandler(async (req, res) =>{
     const {email ,  password} = req.body
@@ -26,12 +35,30 @@ const loginUser = asyncHandler(async (req, res) =>{
     }else{
         const token = createToken(user._id)
        const name = (user.username)
+       const id = (user._id)
        
-       res.status(200).json({email, name, token})
+       res.status(200).json({email, name, id, token})
     }
 })
 
+////////////////////////////////////////////////////
+const deleteUser = asyncHandler(async(req, res)=>{
 
+    
+        const { id }= req.params
+       
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(404).json({error:" ⛔ 🆔"})
+        }
+            const user = await USER.findOneAndDelete({_id: id})
+    
+            if(!user){
+               return res.status(404).json({error: 'No such user'})
+            }
+            res.status(200).json({mss:'sorry to see you leave'})
+        
+    console.log(req.params)
+})
 /////////////////////////////////////////////////////
 const signupUser = asyncHandler(async (req, res) =>{
     const {email ,username,  password} = req.body
@@ -59,8 +86,8 @@ const signupUser = asyncHandler(async (req, res) =>{
    
     if(user){
         const name = (user.username)
-       
-        res.status(200).json({email, name, token})
+       const id = (user._id)
+        res.status(200).json({email, name, id, token})
     }else{
       res.status(400).json({error:"failed to create a new user"})
         
@@ -70,5 +97,7 @@ const signupUser = asyncHandler(async (req, res) =>{
 
 module.exports =  {
     loginUser,
-    signupUser
+    signupUser,
+    deleteUser,
+    getUsers
 }

@@ -32,6 +32,26 @@ ul{
   line-height: 3rem;
   text-align: center;
 }
+.welcomepagetext a {
+  font-size:rem;
+  padding: 7.5px;
+  background-color: black;
+  color: yellowgreen;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:25px;
+  border-top-left-radius:25px;
+  border-bottom-right-radius:25px;
+  border:none;
+  text-decoration:none;
+}
+.welcomepagetext a:hover {
+  background-color: yellowgreen;
+  color: black;
+  border-top-right-radius:25px;
+  border-bottom-left-radius:25px;
+  border-top-left-radius:25px;
+  border-bottom-right-radius:0px;
+}
 @media screen and (min-width: 651px) {
   .navbar{
     display:flex;
@@ -60,10 +80,32 @@ li{
 .mainmenu{
   display: none;
 }
+.welcomepage{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap:15px; 
+  height:100vh;
+}
+.welcomepagetext{
+  text-align: center;
+ align-self: center;
+ font-size: 2.1rem;
+ margin-left: -20px;
+ margin-right:50px;
+}
+
+
 }
 @media screen and (max-width: 650px) {
   .mainmenu {
     display: block;
+  }
+  .welcomepageimg img{
+    width:450px;
+  }
+  .welcomepagetext{
+    text-align: center;
+    font-size: 2rem;
   }
  .listnav {
   position: fixed;
@@ -77,11 +119,10 @@ li{
   height: 340px;
   background-color: grey;
   padding: 20px;
-  transition: right 5s ease ease-in-out;
+  transition:  smooth right 5s ease ease-in-out;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-   /* Add sliding animation effect */
-  z-index: 2; 
+  flex-direction: column; 
+  z-index: 1; 
 }
 table{
   width:100%;
@@ -121,43 +162,7 @@ background-color: antiquewhite;;
   color:green;
   text-decoration: underline;
 }
-.welcomepage{
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap:15px; 
-    height:100vh;
-}
-.welcomepagetext{
-    text-align: center;
-   align-self: center;
-   font-size: 2.1rem;
-   margin-left: -20px;
-   margin-right:50px;
-}
-.welcomepageimg{
-    width:350px;
-    margin-inline-start: -40px;
-}
-.welcomepagetext a {
-    font-size:rem;
-    padding: 7.5px;
-    background-color: black;
-    color: yellowgreen;
-    border-top-right-radius:0px;
-    border-bottom-left-radius:25px;
-    border-top-left-radius:25px;
-    border-bottom-right-radius:25px;
-    border:none;
-    text-decoration:none;
-}
-.welcomepagetext a:hover {
-    background-color: yellowgreen;
-    color: black;
-    border-top-right-radius:25px;
-    border-bottom-left-radius:25px;
-    border-top-left-radius:25px;
-    border-bottom-right-radius:0px;
-}
+
 .welcomepage p{
     margin-top: 5px;
 }
@@ -230,13 +235,40 @@ form.signup, form.login {
     border: 1px solid red;
   }
   .profiletab{
-    height: 500px;
-    width:89%;
-    background-color: antiquewhite;
-    position: relative;
-    z-index: 1;
+    display:flex;
+    justify-content: center;
+  }
+  .prosection img{
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+  .prosection{
+    height: 100vh;
+    height: fit-content;
+    max-width: 500px;
+    background-color: whitesmoke;
     margin:30px;
-    display:block;
+    border:solid 10px black;
+    border-radius: 15px;
+    text-align: center;
+  }
+  .prosection strong{
+    color:green;
+  }
+  .prosection h3{
+    border-radius: 5px;
+    border:3px solid black;
+    margin:10px;
+    padding:10px;
+    text-align: left;
+  }
+  .prosection h4{
+    border:3px solid red;
+    margin:10px;
+    padding:10px;
+    text-align: center;
+    background-color: brown;
+    border-radius: 10px;
   }
   .home{
     background-color:whitesmoke;
@@ -269,13 +301,13 @@ form.signup, form.login {
   height:70%;
   opacity: 0;
   border-radius: 50%;
-  transition: opacity 0.5s ease;
+  transition:  0.5s ease;
   z-index: 0;
 }
 
-.image-slider img.visible {
+ .image-slider img.visible {
   opacity: 1;
-}
+} 
 .home a{
   padding:5px;
   background-color: yellowgreen;
@@ -347,15 +379,6 @@ form.signup, form.login {
   text-decoration: none;
   transition: 1s;
 }
-a{
-  color:black;
-  text-decoration: none;
-}
-a:hover{
- 
-  text-decoration: underline;
-}
-
 table {
   border-collapse: collapse;
   border: 2px solid black; 

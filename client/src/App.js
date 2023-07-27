@@ -42,7 +42,7 @@ function App() {
       element={< About />}
       ></Route>
       <Route path="/profile" 
-      element={< Profile />}
+      element={user ? <Profile />: <Navigate to="/" />}
       ></Route>
       <Route path="/booking" 
       element={user ? <Booking />: <Navigate to="/" />}

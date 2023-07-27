@@ -12,6 +12,7 @@ export default function Navbar(){
   function handleClick(){
     setIsClicked(!isClicked)
     } 
+
    let style={
     borderRadius: '50%',
     textAlign: 'center',
@@ -20,6 +21,7 @@ export default function Navbar(){
 function handleLogout(){
     logout()
 }
+
     return(
         <div className="navbar">
             <div className='divanav'>
@@ -32,7 +34,7 @@ function handleLogout(){
                         fontSize:'1.6rem',
                         padding:'30px -10px  0 0',
                         margin:'10px'
-                    }}>👦🏿 {user.name}✔, welcome!🤗</span>}
+                    }}>Hello, {user.name}.</span>}
             </div>
             <div className={click}>
             <nav>
@@ -42,11 +44,12 @@ function handleLogout(){
                     <li><Link to="/Services">Services</Link></li>
                     {user && <li><Link to="/contact">Contact</Link></li> }
                       {!user && <li><Link to="/login">Login</Link> </li> }
+                      {user && <li><Link to="/profile">👤</Link> </li> }
                     {user &&<li><button onClick={handleLogout} style={{
-                        border:'2px red solid',
+                        border:'2px green solid',
                         fontSize:'1.2rem',
-                        color:'red',
-                        backgroundColor:'pink',
+                        color:'black',
+                        backgroundColor:'whitesmoke',
                         padding:'2.5px',
                         borderRadius:'3px',
                         cursor:'pointer'
@@ -55,7 +58,9 @@ function handleLogout(){
   
             </nav>
             </div>
-                <button  className="mainmenu" onClick={handleClick}>{isClicked ?'❌':'⭕'}</button>
+                <button  style={{
+                    cursor:'pointer'
+                }}className="mainmenu" onClick={handleClick}>{isClicked ?'❌':'⭕'}</button>
         
         </div>
     )

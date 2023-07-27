@@ -12,7 +12,7 @@ const Bookings = () =>{
     
    useEffect(()=>{
     const fetchbookings = async()=>{
-        const response = await fetch("https://riri-car-repair-backened.vercel.app/api/booking",{
+        const response = await fetch("https://riri-car-repair-backend.vercel.app/api/booking",{
             headers:{
                 'Authorization' : `Bearer ${user.token}`
             }
@@ -29,8 +29,36 @@ const Bookings = () =>{
    }
     },[dispatch, user])
     
-
-    if(bookings){
+    if(!bookings){
+      return(
+      <div
+      className='bookingshome' style={{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        height:'100vh'
+      }}>
+        <h3 style={{
+        textAlign:'center',
+        alignSelf:'center'
+      }}>Loading...</h3>
+      </div>)}else if(bookings.length === 0){
+      return(
+       
+      <div className='bookingshome' style={{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        height:'100vh'
+      }}>
+        <h2>Nothing to show here:(</h2>
+        <div className='bookings'><Link to='/booking' style={{
+          textDecoration:'none',
+          marginLeft:'15px'
+        }}>Book Now</Link></div></div>
+      )
+    }
+    else if(bookings){
       return(
         <div style={{
           height:'100%'
@@ -49,6 +77,7 @@ const Bookings = () =>{
               cursor:'pointer'
              }}>mark as done</span></span> */} 
               <p>
+               
                 <strong>Car model and Service: </strong>
                 {booking.model} , {booking.service}
               </p>
@@ -69,16 +98,7 @@ const Bookings = () =>{
           }}><Link to='/booking'>Add Booking</Link></div>
 
         </div>
-    )}else if(!bookings){
-      return(<div className='bookingshome' style={{
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        height:'100vh'
-      }}>
-        <div className='bookings'><Link to='/booking'>Book Now</Link></div></div>
-      )
-    }
+    )}
 }
 export default Bookings
  
