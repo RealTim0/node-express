@@ -12,7 +12,7 @@ const Bookings = () =>{
     
    useEffect(()=>{
     const fetchbookings = async()=>{
-        const response = await fetch("https://riri-car-repair-backened.vercel.app/api/booking",{
+        const response = await fetch("https://riri-car-repair-backend.vercel.app/api/booking",{
             headers:{
                 'Authorization' : `Bearer ${user.token}`
             }
