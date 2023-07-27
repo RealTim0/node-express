@@ -11,9 +11,9 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(express.json())
 app.use(cors())
-app.post('/contact', sendEmail)
-app.use('/user', userroutes )
-app.use('/booking', bookingroutes)
+app.post('/api/contact', sendEmail)
+app.use('/api/user', userroutes )
+app.use('/api/booking', bookingroutes)
 
 mongoose.connection.once('open',()=>{
     console.log("connected")

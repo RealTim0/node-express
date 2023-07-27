@@ -12,7 +12,7 @@ const Bookings = () =>{
     
    useEffect(()=>{
     const fetchbookings = async()=>{
-        const response = await fetch("http://localhost:5000/booking",{
+        const response = await fetch("http://localhost:5000/api/booking",{
             headers:{
                 'Authorization' : `Bearer ${user.token}`
             }
