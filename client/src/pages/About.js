@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const About = () => {
   const [clicked, setClicked] = useState(true)
   const style =` ${clicked ? 'active' : 'question-container'}`
+  const {user} = useAuthContext()
   const handleClick = (i) =>{
     
       setClicked(!clicked)
@@ -67,9 +69,9 @@ const About = () => {
       Nanyuki, 10400<br />
       Kenya<br />
     </address><br />
-        <strong>Phone:</strong> < a href='tel:+254704386'>+254 (707)123 5555</a><br />
+        { user && <><strong>Phone:</strong> < a href='tel:+254704386'>+254 (707)123 5555</a><br />
         <strong>Email:</strong> <a href="mailto:gemtimo994@gmail.com" >info@RIRIcarrepair.com</a><br />
-        <strong>Website:</strong> Website URL
+        <strong>Website:</strong> Website URL </>}
       </div>
       
       <div className="faq">

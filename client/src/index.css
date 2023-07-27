@@ -317,7 +317,17 @@ form.signup, form.login {
   border:none;
   padding:10px;
   border-radius: 15px;
-  background-color:wheat;
+  background-color:rgb(179, 245, 198);
+  font-size: 1.1rem;
+  font-family:Helvetica, sans-serif;
+}
+.bookingsdone{
+  margin:5px;
+  border:none;
+  padding:10px;
+  border-radius: 15px;
+  background-color:green;
+  text-decoration: line-through;
   font-size: 1.1rem;
   font-family:Helvetica, sans-serif;
 }

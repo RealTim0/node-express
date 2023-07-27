@@ -8,6 +8,8 @@ const Bookings = () =>{
     const {bookings, dispatch} = useBookingsContext()
     const {user} = useAuthContext()
     
+   
+    
    useEffect(()=>{
     const fetchbookings = async()=>{
         const response = await fetch("http://localhost:5000/booking",{
@@ -26,14 +28,26 @@ const Bookings = () =>{
     fetchbookings()
    }
     },[dispatch, user])
+    
 
     if(bookings){
       return(
-        <div className="home">
+        <div style={{
+          height:'100%'
+        }}className="home">
             <div className="bookings">
             {bookings.map((booking) => (
             <div className="bookings-details" key={booking._id}>
-              <h4>{booking.name}</h4>
+             {/* <span style={{
+              display:'flex',
+              justifyContent:'space-around'
+             }}> */}<h4>{booking.name}</h4>{/*  <span onClick={handleClick} style={{
+              backgroundColor:'greenyellow',
+              border:'none',
+              borderRadius:'5px',
+              padding:'4px',
+              cursor:'pointer'
+             }}>mark as done</span></span> */} 
               <p>
                 <strong>Car model and Service: </strong>
                 {booking.model} , {booking.service}
@@ -45,12 +59,17 @@ const Bookings = () =>{
                 <strong>Appointment Date:</strong> {booking.appointmentDate}
               </p>
               <p>{formatDistanceToNow(new Date(booking.createdAt), { addSuffix: true })}</p>
-              <span>🚮</span>
+              
             </div>
           ))}
            </div>
+          <div className='bookings' stle={{
+            margin:'10px',
+
+          }}><Link to='/booking'>Add Booking</Link></div>
+
         </div>
-    )}else{
+    )}else if(!bookings){
       return(<div className='bookingshome' style={{
         display:'flex',
         justifyContent:'center',

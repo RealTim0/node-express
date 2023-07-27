@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useAuthContext} from '../hooks/useAuthContext'
 import {useBookingsContext} from '../hooks/useBookingContext'
+import {useNavigate} from'react-router-dom'
 
 const BookingForm = () => {
   const {user} = useAuthContext()
@@ -12,7 +13,7 @@ const BookingForm = () => {
     const[service, setService] = useState('')
     const[appointmentDate, setAppointmentDate] = useState('')
     const[error, setError] = useState(null)
-  
+    const navigate = useNavigate()  
     const handleSubmit = async (e)=>{
       e.preventDefault()
 
@@ -39,7 +40,8 @@ const BookingForm = () => {
           setService("")
           setAppointmentDate('')
           console.log("successful😁")
-          dispatch({type:'CREATE_WORKOUT', payload:json})
+          dispatch({type:'CREATE_BOOKING', payload:json})
+          navigate('/bookings')
       }
   }
 

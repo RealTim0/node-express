@@ -20,16 +20,16 @@ function App() {
    <Navbar/>
    
     <Routes>
-    {!user && <Route path="/" 
+    <Route path="/" 
       element={<Welcome/>}
-      ></Route>}
+      ></Route>
       <Route path="/signup" 
       element={<Signup />}
       ></Route>
       <Route path="/login" 
       element={< Login />}
       ></Route>
-      <Route exact path="/home" 
+    <Route exact path="/home" 
       element={user ? <Home />: <Navigate to="/" />}
       ></Route>
       <Route path="/contact" 

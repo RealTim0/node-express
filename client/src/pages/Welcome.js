@@ -1,9 +1,10 @@
 import React from "react"
 import  {Link} from "react-router-dom"
-
+import { useAuthContext } from "../hooks/useAuthContext"
 
 
 export default function Welcome(){
+    const{user} = useAuthContext()
     return(
         <div className="welcomepage">
             <div className="welcomepageimg">
@@ -11,7 +12,7 @@ export default function Welcome(){
             </div>
             <div className="welcomepagetext">
             <h2>Quality Services</h2>
-            <Link to="/signup">Join Us</Link>
+           {user ?<Link to="/home">Back Home</Link> :<Link to="/signup">Join Us</Link>}
             <p> For an experience like never before</p>
             </div>
             
