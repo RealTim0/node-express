@@ -15,6 +15,10 @@ app.use(cors(
         origin:"https://riri-car-repair-shop-frontend.vercel.app"
     }
 ))
+app.use((req,res,next) =>{
+    console.log(req.path, req.method)
+    next()
+})
 app.post('/api/contact', sendEmail)
 app.use('/api/user', userroutes )
 app.use('/api/booking', bookingroutes)
