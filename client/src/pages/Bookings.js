@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useBookingsContext } from "../hooks/useBookingContext"
 import {useAuthContext} from "../hooks/useAuthContext"
 import {Link} from 'react-router-dom'
+import Loading from '../components/Loading'
 
 const Bookings = () =>{
     const {bookings, dispatch} = useBookingsContext()
@@ -31,18 +32,9 @@ const Bookings = () =>{
     
     if(!bookings){
       return(
-      <div
-      className='bookingshome' style={{
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        height:'100vh'
-      }}>
-        <h3 style={{
-        textAlign:'center',
-        alignSelf:'center'
-      }}>Loading...</h3>
-      </div>)}else if(bookings.length === 0){
+          <Loading />
+    )
+    else if(bookings.length === 0){
       return(
        
       <div className='bookingshome' style={{
