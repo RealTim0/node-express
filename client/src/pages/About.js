@@ -26,7 +26,7 @@ const About = () => {
       
       id:3 ,
       question:'How come I have not received an email' ,
-      answer:'Emails take a while before they are sent .Kindly wait two hours .If issue still persists please reach to us here <a href="mailto:info.riricarrepair@gmail.com" >🔗</a>
+      answer:'Emails take a while before they are sent .Kindly wait two hours .If issue still persists please reach to us here <a href="mailto:info.riricarrepair@gmail.com" >🔗</a>.'
         }
     ]
   return (
