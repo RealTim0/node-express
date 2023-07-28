@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../components/Loading'
 
 
 export default function Contact () {
@@ -12,11 +13,9 @@ export default function Contact () {
   const navigate = useNavigate()
   
   
-  const handleSubmit = async (e) => {
-    <div>Loading...</div>; 
-    
+  const handleSubmit = async (e) => { 
     e.preventDefault();
-    await fetch('https://riri-car-repair-backend.vercel.app/api/contact', {
+    await fetch('http://localhost:5000/api/contact', {
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({name,email,subject,message})  
@@ -99,10 +98,13 @@ export default function Contact () {
             display:'flex'
           }}
           >
-            <button  style={{
+            <button  disable={isLoading} style={{
               marginRight:'5px'
             }}type='submit'>Send Message</button>
+
         <button type='reset' onClick={handleReset}>Reset</button>
+        {error && <div>{error}</div>}
+        {isLoading && <Loading />}
         </span>
       </form>
     </div>

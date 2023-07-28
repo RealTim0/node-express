@@ -48,7 +48,7 @@ export default function Home(){
             </div>
         <div className="homeimgs">
             <ImageSlider images={images}/>
-            <ImageSlider images={images}/>
+            <span className="optional"><ImageSlider images={images}/></span>
        </div>
        </div>
     )

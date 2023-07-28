@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {Link } from 'react-router-dom'
 import {useSignup} from '../hooks/useSignup'
+import Loading from '../components/Loading'
 
 const Signup = ()=>{
     const[email, setEmail]  = useState('')
@@ -15,7 +16,7 @@ const Signup = ()=>{
         e.preventDefault()
            await signup(email, username, password)
     }
-    return(
+    if(!isLoading){return(
         <form  className='signup' onSubmit={handleSubmit} >
             <h3>Sign Up</h3>
             <label>Email:</label>
@@ -44,7 +45,9 @@ const Signup = ()=>{
                 {error && <div className="error">{error}</div>}
                 <p>Already have an account ?<Link to="/login">Login</Link> </p>
         </form>
-    )
+    )}else if(isLoading){
+        return (<Loading />)
+    }
 
     }
 export default Signup

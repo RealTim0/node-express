@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useAuthContext} from '../hooks/useAuthContext'
 import {useBookingsContext} from '../hooks/useBookingContext'
 import {useNavigate} from'react-router-dom'
+import Loading from '../components/Loading'
 
 const BookingForm = () => {
   const {user} = useAuthContext()
@@ -13,11 +14,12 @@ const BookingForm = () => {
     const[service, setService] = useState('')
     const[appointmentDate, setAppointmentDate] = useState('')
     const[error, setError] = useState(null)
+    const[isLoading, setIsloading] = useState(false)
     const navigate = useNavigate()  
     const handleSubmit = async (e)=>{
       e.preventDefault()
-
-      const response = await fetch("https://riri-car-repair-backend.vercel.app/api/booking",{
+      setIsloading(true)
+      const response = await fetch("http://localhost:5000/api/booking",{
           method:'POST',
           body:JSON.stringify({name, email, model, phone, service, appointmentDate}),
           headers:{
@@ -30,6 +32,7 @@ const BookingForm = () => {
 
       if(!response.ok){
           setError(json.error)
+          setIsloading(false)
       }
       if(response.ok){
           setError(null)
@@ -41,10 +44,16 @@ const BookingForm = () => {
           setAppointmentDate('')
           console.log("successful😁")
           dispatch({type:'CREATE_BOOKING', payload:json})
+          setIsloading(false)
           navigate('/bookings')
+
       }
   }
 
+ if(isLoading){
+  return(<Loading />)
+
+ }else if (!isLoading){
   return (
     <div>
       
@@ -120,6 +129,7 @@ const BookingForm = () => {
       </form>
     </div>
   );
+ }
 };
 
 export default BookingForm;

@@ -13,6 +13,7 @@ import Booking from "./pages/Booking"
 import Bookings from "./pages/Bookings"
 import { useAuthContext } from "./hooks/useAuthContext";
 
+
 function App() {
   const {user} = useAuthContext()
   return (

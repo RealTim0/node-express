@@ -32,6 +32,9 @@ ul{
   line-height: 3rem;
   text-align: center;
 }
+.welcomepage{
+  overflow-x: hidden;
+}
 .welcomepagetext a {
   font-size:rem;
   padding: 7.5px;
@@ -100,6 +103,14 @@ li{
   .mainmenu {
     display: block;
   }
+   .image-slider img {
+  top: -20px;
+  left: 20px;
+  padding:30px;
+  } 
+   .optional{
+    display:none;
+  } 
   .welcomepageimg img{
     width:450px;
   }
@@ -285,24 +296,24 @@ form.signup, form.login {
   }
   
 .image-slider {
-  position: relative;
-  width: 300px;
-  height: 300px; /* Adjust the height as needed */
-  overflow: hidden;
   margin-top: 20px;
+  position:relative;
+  width: 300px;
+  height: 300px; 
+  overflow: hidden;
   z-index: 0;
 }
 
 .image-slider img {
   position: absolute;
-  top: 0;
-  left: 0;
   width:70%;
   height:70%;
   opacity: 0;
   border-radius: 50%;
   transition:  0.5s ease;
   z-index: 0;
+  left:0;
+  top:0;
 }
 
  .image-slider img.visible {
@@ -504,4 +515,16 @@ hr{
 }
 .services{
   font-size: 1.2rem;
+}
+.loading{
+  font-size: 4rem;
+  background-color: whitesmoke;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  opacity:.5
+}
+.loading h3{
+  animation: pop .6s ease-in-out infinite;
 }

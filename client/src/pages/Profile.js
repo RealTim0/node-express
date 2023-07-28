@@ -14,7 +14,7 @@ export default function Profile(){
     }
     const handleDelete = async() =>{
         alert('Are you sure you want to delete your account,action is IRREVERSIBLE!')
-        const response = await fetch('https://riri-car-repair-backend.vercel.app/api/user/delete/' + user.id ,{
+        const response = await fetch('http://localhost:5000/api/user/delete/' + user.id ,{
             method:'DELETE',
             headers:{
                'Authorization' : `Bearer ${user.token}`,
