@@ -6,7 +6,7 @@ const About = () => {
   const [clicked, setClicked] = useState(true)
   const style =` ${clicked ? 'active' : 'question-container'}`
   const {user} = useAuthContext()
-  const handleClick = (i) =>{
+  const handleClick = (key) =>{
     
       setClicked(!clicked)
     }
