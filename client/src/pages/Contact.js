@@ -15,15 +15,14 @@ export default function Contact () {
   
   const handleSubmit = async (e) => { 
     e.preventDefault();
-    await fetch('https://riri-car-repair-backend.vercel.app/api/contact', {
+    setIsLoading(true)
+   const response =  await fetch('https://riri-car-repair-backend.vercel.app/api/contact', {
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({name,email,subject,message})  
             })
-    
-            .then((response)=> {
               if(response.ok){
-                setIsLoading(true)
+                setIsLoading(false)
                 alert('Your message has been received and an email will be sent to you with the response sent.Thankyou!')
                 console.log("ssffs")
               setEmail("")
@@ -31,12 +30,10 @@ export default function Contact () {
               setSubject('')
               setName('')
               navigate("/home")
-              response.json()}})
+              }})
             
-            .then((data)=>{
-              console.log(data)
-            })
-            .catch((error)=>{
+            
+            if(!response.ok){
               setIsLoading(false)
                 setError(error)
                 console.log(error)
@@ -51,7 +48,10 @@ export default function Contact () {
         setMessage('');
         
      }       
-  return (
+  if(isLoading){
+    return(<Loading />)}
+  else if(!isLoading){
+    return (
    <div>
      
       <form onSubmit={handleSubmit} className='contact'>
@@ -104,10 +104,11 @@ export default function Contact () {
 
         <button type='reset' onClick={handleReset}>Reset</button>
         {error && <div>{error}</div>}
-        {isLoading && <Loading />}
+       
         </span>
       </form>
     </div>
   )
 
+  }
 }
