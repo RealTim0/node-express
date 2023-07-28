@@ -72,7 +72,7 @@ const About = () => {
         { user && <><strong>Phone:</strong> < a href='tel:+254704386'>🔗</a><br />
         <strong>Email:</strong> <a href="mailto:info.riricarrepair@gmail.com" >🔗</a><br />
         <strong>Website:</strong> < a href='https://riri-car-repair-shop-frontend.vercel.app/'>🔗</a></>}
-      </div
+      </div>
       
       <div className="faq">
         <h2>FAQ</h2>
