@@ -30,14 +30,14 @@ export default function Contact () {
               setSubject('')
               setName('')
               navigate("/home")
-              }})
+              }
             
             
             if(!response.ok){
               setIsLoading(false)
                 setError(error)
                 console.log(error)
-            })
+            }
             
             }
      const handleReset = () => {
