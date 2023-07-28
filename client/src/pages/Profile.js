@@ -12,9 +12,16 @@ export default function Profile(){
     function handleLogout(){
         logout()
     }
+    const handleClick = async() =>{
+        const result = window.confirm('Are you sure you want to delete your account,action is IRREVERSIBLE!')
+        if(result){
+            handleDelete()
+        }else{
+            return;
+            navigate("/profile")
+        }
+    }
     const handleDelete = async() =>{
-        const res = window.confirm('Are you sure you want to delete your account,action is IRREVERSIBLE!')
-        if(res){
         const response = await fetch('https://riri-car-repair-backend.vercel.app/api/user/delete/' + user.id ,{
             method:'DELETE',
             headers:{
@@ -34,8 +41,6 @@ export default function Profile(){
             alert('error')
             navigate('/home')
             
-        }}else if(!res){
-            navigate(/profile)
         }
 
     }
@@ -62,7 +67,7 @@ export default function Profile(){
                     }}>logout</button>
                     
                     <h4 >
-                        <button onClick={handleDelete} style={{
+                        <button onClick={handleClick} style={{
                         border:'2px red solid',
                         fontSize:'1.2rem',
                         color:'red',
