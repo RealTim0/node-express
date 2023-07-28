@@ -69,10 +69,10 @@ const About = () => {
       Nanyuki, 10400<br />
       Kenya<br />
     </address><br />
-        { user && <><strong>Phone:</strong> < a href='tel:+254704386'>+254 (707)123 5555</a><br />
-        <strong>Email:</strong> <a href="mailto:gemtimo994@gmail.com" >info@RIRIcarrepair.com</a><br />
-        <strong>Website:</strong> Website URL </>}
-      </div>
+        { user && <><strong>Phone:</strong> < a href='tel:+254704386'>🔗</a><br />
+        <strong>Email:</strong> <a href="mailto:info.riricarrepair@gmail.com" >🔗</a><br />
+        <strong>Website:</strong> < a href='https://riri-car-repair-shop-frontend.vercel.app/'>🔗</a></>}
+      </div
       
       <div className="faq">
         <h2>FAQ</h2>
@@ -82,12 +82,12 @@ const About = () => {
              </div>
         </div>
         <div onClick={handleClick} className={style}>
-            <div className="question">What are the subscription rates?</div>
-            <div className="answer">$1000 - promax$800 - proplu$500 - pro$200 - regular</div>
+            <div className="question">How are payments made</div>
+            <div className="answer">Currently we only do cash and after service delivery . Soon enough we will have mobile money transfer.</div>
         </div>
         <div onClick={handleClick} className={style}>
-            <div className="question">How does one apply for the certification 🏆 exam?</div>
-            <div className="answer">Just click <a href="https://campus.w3schools.com/collections/certifications">me</a> and follow all the instructions including the payments, study well and take the exams!Wish you success✨🥇</div>
+            <div className="question">How come Ihave not received an email</div>
+            <div className="answer">Emails take a while before they are sent .Kindly wait two hours .If issue still peresists please reach to us here <a href="mailto:info.riricarrepair@gmail.com" >🔗</a></div>
         </div>
     </div>
     </div>
