@@ -13,7 +13,8 @@ export default function Profile(){
         logout()
     }
     const handleDelete = async() =>{
-        window.confirm('Are you sure you want to delete your account,action is IRREVERSIBLE!')
+        const res = window.confirm('Are you sure you want to delete your account,action is IRREVERSIBLE!')
+        if(res){
         const response = await fetch('https://riri-car-repair-backend.vercel.app/api/user/delete/' + user.id ,{
             method:'DELETE',
             headers:{
@@ -33,6 +34,8 @@ export default function Profile(){
             alert('error')
             navigate('/home')
             
+        }}else if(!res){
+            navigate(/profile)
         }
 
     }
