@@ -32,7 +32,11 @@ const Bookings = () =>{
     
     if(!bookings){
       return(
-          <Loading />
+          <div style={{
+           textAlign:'center',
+          alignSelf:'center',
+          fontSize:'3rem'
+          }}>Loading...</div>
     )}
     else if(bookings.length === 0){
       return(
