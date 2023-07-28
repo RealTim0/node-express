@@ -14,7 +14,7 @@ export default function Profile(){
     }
     const handleClick = async() =>{
         const result = window.confirm('Are you sure you want to delete your account,action is IRREVERSIBLE!')
-        if(result){
+        if(result === true){
             handleDelete()
         }else{
             return;
