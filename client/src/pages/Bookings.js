@@ -53,7 +53,7 @@ const Bookings = () =>{
     else if(bookings){
       return(
         <div style={{
-          height:'100%'
+          height:'100vh'
         }}className="home">
             <div className="bookings">
             {bookings.map((booking) => (
