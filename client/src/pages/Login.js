@@ -12,10 +12,7 @@ export default function Login (){
         e.preventDefault()
        await login(email, password) 
     }
-    if(isLoading){
-        return(<Loading />)
-    } 
-    else if(!isLoading){return(
+     if(!isLoading){return(
         <form  className='login' onSubmit={handleSubmit} >
             <h3>Login</h3>
             <label>Email:</label>
@@ -39,5 +36,8 @@ export default function Login (){
                 
                 {error && <div className='error'>{error}</div>} 
         </form>
-    )}
+    )}else if(isLoading){
+        return(<Loading />)
+    } 
+    
 }
