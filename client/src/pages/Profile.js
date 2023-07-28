@@ -17,7 +17,6 @@ export default function Profile(){
         if(result === true){
             handleDelete()
         }else{
-            return;
             navigate("/profile")
         }
     }
