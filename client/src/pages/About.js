@@ -94,8 +94,8 @@ const About = () => {
 { data.map((data) =>(
         <div key={data.id} onClick={handleClick} className={style}>
             <div className="question">{data.question}</div>
-            <div className="answer">{data.answer}</div>))}
-        </div>
+            <div className="answer">{data.answer}</div>
+        </div>))}
     </div>
     </div>
     </div>
