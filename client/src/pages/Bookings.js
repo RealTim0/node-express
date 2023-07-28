@@ -24,9 +24,9 @@ const Bookings = () =>{
           dispatch({type:'GET_BOOKINGS', payload:bookings})  
         }
         }
-    if(user){
+    
     fetchbookings()
-   }
+   
     },[dispatch, user])
     
     if(!bookings){
