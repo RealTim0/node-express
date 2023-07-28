@@ -19,7 +19,7 @@ const BookingForm = () => {
     const handleSubmit = async (e)=>{
       e.preventDefault()
       setIsloading(true)
-      const response = await fetch("http://localhost:5000/api/booking",{
+      const response = await fetch("https://riri-car-repair-backend.vercel.app/api/booking/",{
           method:'POST',
           body:JSON.stringify({name, email, model, phone, service, appointmentDate}),
           headers:{
