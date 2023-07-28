@@ -33,7 +33,7 @@ const Bookings = () =>{
     if(!bookings){
       return(
           <Loading />
-    )
+    )}
     else if(bookings.length === 0){
       return(
        
