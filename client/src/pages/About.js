@@ -11,9 +11,23 @@ const About = () => {
       setClicked(!clicked)
     }
     const data = [
-      {id:1 , question:'How are payments made' , answer:'Currently we only do cash and after service delivery . Soon enough we will have mobile money transfer.'}
-      {id:2 , question:'What's the importance of collecting my personal details?' , answer:'Please take a look at ou Terms and conditions and our privacy policy at the bottom ofthe page.'}
-      {id:3 , question:'How come I have not received an email' , answer:'>Emails take a while before they are sent .Kindly wait two hours .If issue still peresists please reach to us here <a href="mailto:info.riricarrepair@gmail.com" >🔗</a>'}
+      {
+        id:1 ,
+       question:'How are payments made' ,
+       answer:'Currently we only do cash and after service delivery . Soon enough we will have mobile money transfer.'
+      },
+      
+      {
+      id:2 ,
+      question:'What is the importance of collecting my personal details?' ,
+      answer:'Please take a look at our Terms and conditions and our privacy policy at the bottom ofthe page.'
+    },
+      {
+      
+      id:3 ,
+      question:'How come I have not received an email' ,
+      answer:'Emails take a while before they are sent .Kindly wait two hours .If issue still persists please reach to us here <a href="mailto:info.riricarrepair@gmail.com" >🔗</a>
+        }
     ]
   return (
     <div className='about'>
