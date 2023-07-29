@@ -24,12 +24,12 @@ function App() {
     <Route path="/" 
       element={<Welcome/>}
       ></Route>
-      <Route path="/signup" 
+{ !user && <Route path="/signup" 
       element={<Signup />}
-      ></Route>
-      <Route path="/login" 
+      ></Route>}
+      { !user && <Route path="/login" 
       element={< Login />}
-      ></Route>
+      ></Route>}
     <Route exact path="/home" 
       element={user ? <Home />: <Navigate to="/" />}
       ></Route>
