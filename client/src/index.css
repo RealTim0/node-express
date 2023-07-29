@@ -523,8 +523,8 @@ hr{
   display:flex;
   justify-content: center;
   align-items: center;
-  opacity:.5
-    overflow: hidden;
+  opacity:.5;
+  overflow: hidden;
 }
 .loading h3{
   animation: pop .8s ease-in-out infinite;
