@@ -2,6 +2,7 @@ import {useAuthContext} from '../hooks/useAuthContext'
 import { useLogout } from '../hooks/useLogout'
 import{useNavigate} from 'react-router-dom'
 import{useState} from 'react'
+import Loading from "../components/Loading"
 
 
 export default function Profile(){
@@ -9,6 +10,7 @@ export default function Profile(){
     const{logout} = useLogout()
     const navigate = useNavigate()
     const[error, setError] = useState(null)
+    const[isLoading, setIsLoading] = useState(null)
     function handleLogout(){
         logout()
     }
@@ -21,6 +23,7 @@ export default function Profile(){
         }
     }
     const handleDelete = async() =>{
+        setIsLoading(true)
         const response = await fetch('https://riri-car-repair-backend.vercel.app/api/user/delete/' + user.id ,{
             method:'DELETE',
             headers:{
@@ -31,22 +34,26 @@ export default function Profile(){
         
         
         if(response.ok){
+            setIsLoading(false)
             alert('Account deleted successfuly, Sorry to see you leave')
             handleLogout()
             navigate('/')
         }
         if(!response.ok){
+            setIsLoading(false)
             setError(error)
-            alert('error')
+            alert(error, 'Kindly Share the reason for wanting to delete your account')
             navigate('/home')
             
         }
 
     }
-    if (!user) {
-        return <div>Loading...</div>
-      }
-    return(
+
+   if(isLoading){
+       return (<Loading />)
+           }
+    else if(!isLoading){
+         return(
         <div className="profiletab">
             <div className='prosection'>
             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyKpQUy8JP90MAZxFjU0P9bPqkUWL35fd8Ag&usqp=CAU' alt='' />
@@ -78,4 +85,5 @@ export default function Profile(){
         </div>
         </div>
     )
+    }
 }
